@@ -17,7 +17,9 @@ public class ParseRubiks {
 	public static final int BACK = 4;
 	public static final int BOTTOM = 5;
 
-	public static void main(String[] argv) {
+  private File textfile;
+
+	public static void main(String[] argv) throws FileNotFoundException {
 		ParseRubiks parser = new ParseRubiks(argv[0]);
 		Cube output = parser.lineByLine();
 		emit("Rubiks text parsed into Cube.");
@@ -30,7 +32,7 @@ public class ParseRubiks {
 
 	/*	Parses text file line by line, creating a Face object for each line. 
 		Returns Rubiks as a Cube object. */
-	public final Cube lineByLine() {
+	public final Cube lineByLine() throws FileNotFoundException {
 		Scanner input = new Scanner(new FileReader(textfile));
 		Face[] faces = new Face[6];
 		int whichFace = 0;
@@ -51,12 +53,21 @@ public class ParseRubiks {
 		Parameter is a String.
 		Returns line as a Face object. */
 	protected Face processLine(String line) {
-		String[] blocks = line.split(",");
-		int[][] faceArray = new int[SIZE][SIZE];
+		char[] tempblocks = line.toCharArray();
+    char[] blocks = new char[line.split(",").length];
+    int counter = 0;
+    for(char block : tempblocks) {
+      if(block != ',') {
+        blocks[counter] = block;
+        counter++;
+      }
+    }
+
+		char[][] faceArray = new char[SIZE][SIZE];
 		int row = 0;
 		int col = 0;
 		for (int i = 0; i < blocks.length; i++) {
-			faceArray[row][col] = Integer.parseInt(blocks[i]);
+			faceArray[row][col] = blocks[i];
 			col = (col+1)%SIZE;
 			if (i%SIZE == ROW_RESET) {
 				row++;
