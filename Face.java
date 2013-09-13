@@ -144,10 +144,4 @@ public class Face {
 		
 		return string;
 	}
-	
-	public static void main(String[] args) {
-		char[][] a = {{'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'}};
-		Face face = new Face(a);
-		System.out.println(face.getTurnSection());
-	}
 }
