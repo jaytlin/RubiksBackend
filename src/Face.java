@@ -4,8 +4,6 @@
 * 
 */
 
-package RubiksBackend;
-
 public class Face {
 	// Face is internally represented as a 3x3 char matrix
 	private char[][] face;
@@ -36,33 +34,33 @@ public class Face {
 	*/
 	public char[] getTurnSection(CubeSection section) {
 		switch(section) {
-			case CubeSection.TOP:
+			case section.TOP:
 				return face[0];
 			
-			case CubeSection.HORIZONTAL_MIDDLE:
+			case section.HORIZONTAL_MIDDLE:
 				return face[1];
 		
-			case CubeSection.BOTTOM:
+			case section.BOTTOM:
 				return face[2];
 		
 		
 		
 		
-			case CubeSection.LEFT:
+			case section.LEFT:
 				char[] turnface = new char[3];
 				for(int i = 0; i < face.length; i++) {
 					turnface[i] = face[i][0];
 				}
 				return turnface;
 			
-			case CubeSection.VERTICAL_MIDDLE:
+			case section.VERTICAL_MIDDLE:
 				char[] turnface = new char[3];
 				for(int i = 0; i < face.length; i++) {
 					turnface[i] = face[i][1];
 				}
 				return turnface;
 			
-			case CubeSection.RIGHT:
+			case section.RIGHT:
 				char[] turnface = new char[3];
 				for(int i = 0; i < face.length; i++) {
 					turnface[i] = face[i][2];
@@ -78,34 +76,34 @@ public class Face {
 	*/
 	public void setTurnSection(CubeSection section, char[] section) {
 		switch(section) {
-			case CubeSection.TOP:
+			case section.TOP:
 				face[0] = section;
 				break;
 			
-			case CubeSection.HORIZONTAL_MIDDLE:
+			case section.HORIZONTAL_MIDDLE:
 				face[1] = section;
 				break;
 			
-			case CubeSection.BOTTOM:
+			case section.BOTTOM:
 				face[2] = section;
 				break;
 				
 				
 				
 				
-			case CubeSection.LEFT:
+			case section.LEFT:
 				for(int i=0; i<section.length; i++) {
 					face[i][0] = section[i];
 				}
 				break;
 				
-			case CubeSection.VERTICAL_MIDDLE:
+			case section.VERTICAL_MIDDLE:
 				for(int i=0; i<section.length; i++) {
 					face[i][1] = section[i];
 				}
 				break;
 				
-			case CubeSection.RIGHT:
+			case section.RIGHT:
 				for(int i=0; i<section.length; i++) {
 					face[i][2] = section[i];
 				}

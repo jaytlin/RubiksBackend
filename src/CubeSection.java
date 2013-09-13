@@ -1,3 +1,5 @@
+package src;
+
 public enum CubeSection {
   LEFT("left"), 
   RIGHT("right"),
