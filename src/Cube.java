@@ -226,4 +226,9 @@ public class Cube {
     this.right.setSection(rightFaceSection);
     this.top.rotate(numSteps)
   }
+
+  public String toString() {
+    return "top: \n" + this.top.toString() + "left: \n" + this.left.toString() + "front: \n" + this.front.toString() + 
+      "right: \n" + this.right.toString() + "back: \n" + this.back.toString() + "bottom: \n" + this.bottom.toString();
+  }
 }
