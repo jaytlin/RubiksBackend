@@ -1,7 +1,6 @@
 /**
 * Face
 * Represents a rubik's cube face as a 3x3 char array
-* 
 */
 
 public class Face {
@@ -70,7 +69,7 @@ public class Face {
 	}
 	
 	/**
-	* 
+	* Makes changes to the turn section given which section of the face, and the values to update it with
 	*/
 	public void setTurnSection(CubeSection section, char[] sectionValues) {
 		switch(section) {
@@ -109,6 +108,10 @@ public class Face {
 		}
 	}
 	
+	/**
+	* Performs a point-wise rotation around the middle block. It will only rotate to the right, however achieving a rotate to the left
+	* can be achieved by same rotation to the right
+	*/
 	public void rotate(int turns) {
 		// This is rotating to the right
 		turns = turns % 4;
@@ -127,6 +130,15 @@ public class Face {
 		face = newFace;
 	}
 	
+	/**
+	* Gives the string representation of the Face given as:
+	*
+	* abc\n
+	* def\n
+	* ghi\n
+	*
+	* where a,b,c,d,e,f,g,h,i are all different blocks
+	*/
 	public String toString() {
 		String string = "";
 	
