@@ -30,7 +30,7 @@ public class ParseRubiks {
 	/*	Parses text file line by line, creating a Face object for each line. 
 		Returns Rubiks as a Cube object. */
 	public final Cube lineByLine() {
-		Scanner input = new Scanner(textfile);
+		Scanner input = new Scanner(new FileReader(textfile));
 		Face[] faces = new Face[6];
 		int whichFace = 0;
 		try {
@@ -64,6 +64,7 @@ public class ParseRubiks {
 				row++;
 			}
 		}
+		System.out.println(Arrays.toString(faceArray));
 		Face outputFace = new Face(faceArray);
 		return outputFace;
 	}
