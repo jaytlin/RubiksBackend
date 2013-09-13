@@ -1,3 +1,5 @@
+package src;
+
 /**
 * Face
 * Represents a rubik's cube face as a 3x3 char array

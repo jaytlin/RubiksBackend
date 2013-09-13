@@ -17,11 +17,11 @@ public class ParseRubiks {
 	public static final int BACK = 4;
 	public static final int BOTTOM = 5;
 
-	public static Cube main(String[] argv) {
+	public static void main(String[] argv) {
 		ParseRubiks parser = new ParseRubiks(argv[0]);
 		Cube output = parser.lineByLine();
 		emit("Rubiks text parsed into Cube.");
-		return output;
+		emit(output);
 	}
 
 	public ParseRubiks(String filepath) {
