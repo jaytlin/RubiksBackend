@@ -1,3 +1,5 @@
+package src;
+
 public class Cube {
   private Face top;
   private Face bottom;
@@ -15,37 +17,37 @@ public class Cube {
     this.right = right;
   }
 
-  public turnSide(TurnFace face, int numSteps) {
+  public void turnSide(TurnFace face, int numSteps) {
     numSteps = numSteps % 4;
     switch(face) {
       case TurnFace.FRONT:
-        turnFront(section, numSteps);
+        turnFront(numSteps);
         break;
       case TurnFace.BACK:
-        turnBack(section, numSteps);
+        turnBack(numSteps);
         break;
       case TurnFace.LEFT:
-        turnLeft(section, numSteps);
+        turnLeft(numSteps);
         break;
       case TurnFace.RIGHT:
-        turnRight(section, numSteps);
+        turnRight(numSteps);
         break;
       case TurnFace.TOP:
-        turnTop(section, numSteps);
+        turnTop(numSteps);
         break;
       case TurnFace.BOTTOM:
-        turnBottom(section, numSteps);
+        turnBottom(numSteps);
         break;
       default: 
         throw new RuntimeException("Invalid TurnFace type!"); 
     }
   }
 
-  private turnFront(int numSteps) {
-    char[] topFaceSection = this.top.getSection(TurnSection.BOTTOM);
-    char[] leftFaceSection = this.left.getSection(TurnSection.RIGHT);
-    char[] rightFaceSection = this.right.getSection(TurnSection.LEFT);
-    char[] bottomFaceSection = this.bottom.getSection(TurnSection.TOP);
+  private void turnFront(int numSteps) {
+    char[] topFaceSection = this.top.getSection(CubeSection.BOTTOM);
+    char[] leftFaceSection = this.left.getSection(CubeSection.RIGHT);
+    char[] rightFaceSection = this.right.getSection(CubeSection.LEFT);
+    char[] bottomFaceSection = this.bottom.getSection(CubeSection.TOP);
 
     numSteps = 4 - numSteps;
 
@@ -69,14 +71,14 @@ public class Cube {
     this.left.setSection(leftFaceSection);
     this.right.setSection(rightFaceSection);
     this.bottom.setSection(bottomFaceSection);
-    this.front.rotate(numSteps)
+    this.front.rotate(numSteps);
   }
 
-  private turnBack(int numSteps) {
-    char[] topFaceSection = this.top.getSection(TurnSection.BOTTOM);
-    char[] leftFaceSection = this.left.getSection(TurnSection.RIGHT);
-    char[] rightFaceSection = this.right.getSection(TurnSection.LEFT);
-    char[] bottomFaceSection = this.bottom.getSection(TurnSection.TOP);
+  private void turnBack(int numSteps) {
+    char[] topFaceSection = this.top.getSection(CubeSection.BOTTOM);
+    char[] leftFaceSection = this.left.getSection(CubeSection.RIGHT);
+    char[] rightFaceSection = this.right.getSection(CubeSection.LEFT);
+    char[] bottomFaceSection = this.bottom.getSection(CubeSection.TOP);
 
     numSteps = 4 - numSteps;
 
@@ -100,14 +102,14 @@ public class Cube {
     this.left.setSection(leftFaceSection);
     this.right.setSection(rightFaceSection);
     this.bottom.setSection(bottomFaceSection);
-    this.back.rotate(numSteps)
+    this.back.rotate(numSteps);
   }
 
-  private turnRight(int numSteps) {
-    char[] topFaceSection = this.top.getSection(TurnSection.BOTTOM);
-    char[] frontFaceSection = this.front.getSection(TurnSection.RIGHT);
-    char[] backFaceSection = this.back.getSection(TurnSection.LEFT);
-    char[] bottomFaceSection = this.bottom.getSection(TurnSection.TOP);
+  private void turnRight(int numSteps) {
+    char[] topFaceSection = this.top.getSection(CubeSection.BOTTOM);
+    char[] frontFaceSection = this.front.getSection(CubeSection.RIGHT);
+    char[] backFaceSection = this.back.getSection(CubeSection.LEFT);
+    char[] bottomFaceSection = this.bottom.getSection(CubeSection.TOP);
 
     numSteps = 4 - numSteps;
 
@@ -131,14 +133,14 @@ public class Cube {
     this.front.setSection(frontFaceSection);
     this.back.setSection(backFaceSection);
     this.bottom.setSection(bottomFaceSection);
-    this.right.rotate(numSteps)
+    this.right.rotate(numSteps);
   }
 
-  private turnLeft(int numSteps) {
-    char[] topFaceSection = this.top.getSection(TurnSection.BOTTOM);
-    char[] frontFaceSection = this.front.getSection(TurnSection.RIGHT);
-    char[] backFaceSection = this.back.getSection(TurnSection.LEFT);
-    char[] bottomFaceSection = this.bottom.getSection(TurnSection.TOP);
+  private void turnLeft(int numSteps) {
+    char[] topFaceSection = this.top.getSection(CubeSection.BOTTOM);
+    char[] frontFaceSection = this.front.getSection(CubeSection.RIGHT);
+    char[] backFaceSection = this.back.getSection(CubeSection.LEFT);
+    char[] bottomFaceSection = this.bottom.getSection(CubeSection.TOP);
 
     numSteps = 4 - numSteps;
 
@@ -162,14 +164,14 @@ public class Cube {
     this.front.setSection(frontFaceSection);
     this.back.setSection(backFaceSection);
     this.bottom.setSection(bottomFaceSection);
-    this.right.rotate(numSteps)
+    this.right.rotate(numSteps);
   }
 
-  private turnTop(int numSteps) {
-    char[] leftFaceSection = this.left.getSection(TurnSection.BOTTOM);
-    char[] frontFaceSection = this.front.getSection(TurnSection.RIGHT);
-    char[] backFaceSection = this.back.getSection(TurnSection.LEFT);
-    char[] rightFaceSection = this.right.getSection(TurnSection.TOP);
+  private void turnTop(int numSteps) {
+    char[] leftFaceSection = this.left.getSection(CubeSection.BOTTOM);
+    char[] frontFaceSection = this.front.getSection(CubeSection.RIGHT);
+    char[] backFaceSection = this.back.getSection(CubeSection.LEFT);
+    char[] rightFaceSection = this.right.getSection(CubeSection.TOP);
 
     numSteps = 4 - numSteps;
 
@@ -193,14 +195,14 @@ public class Cube {
     this.front.setSection(frontFaceSection);
     this.back.setSection(backFaceSection);
     this.right.setSection(rightFaceSection);
-    this.top.rotate(numSteps)
+    this.top.rotate(numSteps);
   }
 
-  private turnBottom(int numSteps) {
-    char[] leftFaceSection = this.left.getSection(TurnSection.BOTTOM);
-    char[] frontFaceSection = this.front.getSection(TurnSection.RIGHT);
-    char[] backFaceSection = this.back.getSection(TurnSection.LEFT);
-    char[] rightFaceSection = this.right.getSection(TurnSection.TOP);
+  private void turnBottom(int numSteps) {
+    char[] leftFaceSection = this.left.getSection(CubeSection.BOTTOM);
+    char[] frontFaceSection = this.front.getSection(CubeSection.RIGHT);
+    char[] backFaceSection = this.back.getSection(CubeSection.LEFT);
+    char[] rightFaceSection = this.right.getSection(CubeSection.TOP);
 
     numSteps = 4 - numSteps;
 
@@ -224,7 +226,7 @@ public class Cube {
     this.front.setSection(frontFaceSection);
     this.back.setSection(backFaceSection);
     this.right.setSection(rightFaceSection);
-    this.top.rotate(numSteps)
+    this.top.rotate(numSteps);
   }
 
   public String toString() {
