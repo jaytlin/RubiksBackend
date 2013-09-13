@@ -21,13 +21,19 @@ public class ParseRubiks {
 
 	public static void main(String[] argv) throws FileNotFoundException {
 		ParseRubiks parser = new ParseRubiks(argv[0]);
-		Cube output = parser.lineByLine();
-		emit("Rubiks text parsed into Cube.");
-		emit(output);
+		Cube cube = parser.lineByLine();
+		System.out.println(":::CUBE OUTPUT(from file):::");
+		System.out.println(cube);
+		
+		System.out.println();
+		System.out.println();
+		cube.turnSide(TurnFace.TOP, 1);
+		System.out.println(":::CUBE OUTPUT(after top turn):::");
+		System.out.println(cube);
 	}
 
 	public ParseRubiks(String filepath) {
-		File textfile = new File(filepath);
+		textfile = new File(filepath);
 	}
 
 	/*	Parses text file line by line, creating a Face object for each line. 
@@ -40,7 +46,7 @@ public class ParseRubiks {
 			while (input.hasNextLine()) {
 				faces[whichFace] = processLine(input.nextLine());
 				whichFace++;
-				emit("Faces parsed: " + whichFace+1 + "out of " + TOTAL_FACES);
+				//emit("Faces parsed: " + whichFace+1 + "out of " + TOTAL_FACES);
 			}
 		} finally {
 			input.close();
@@ -73,7 +79,7 @@ public class ParseRubiks {
 				row++;
 			}
 		}
-		System.out.println(Arrays.toString(faceArray));
+		//System.out.println(Arrays.toString(faceArray));
 		Face outputFace = new Face(faceArray);
 		return outputFace;
 	}
