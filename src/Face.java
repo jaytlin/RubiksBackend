@@ -1,7 +1,6 @@
 /**
 * Face
 * Represents a rubik's cube face as a 3x3 char array
-* 
 */
 
 public class Face {
@@ -33,35 +32,33 @@ public class Face {
 	* Returns a 3-length char array for that secion of the cube
 	*/
 	public char[] getTurnSection(CubeSection section) {
+		char[] turnface = new char[3];
 		switch(section) {
-			case section.TOP:
+			case TOP:
 				return face[0];
 			
-			case section.HORIZONTAL_MIDDLE:
+			case HORIZONTAL_MIDDLE:
 				return face[1];
 		
-			case section.BOTTOM:
+			case BOTTOM:
 				return face[2];
 		
 		
 		
 		
-			case section.LEFT:
-				char[] turnface = new char[3];
+			case LEFT:
 				for(int i = 0; i < face.length; i++) {
 					turnface[i] = face[i][0];
 				}
 				return turnface;
 			
-			case section.VERTICAL_MIDDLE:
-				char[] turnface = new char[3];
+			case VERTICAL_MIDDLE:
 				for(int i = 0; i < face.length; i++) {
 					turnface[i] = face[i][1];
 				}
 				return turnface;
 			
-			case section.RIGHT:
-				char[] turnface = new char[3];
+			case RIGHT:
 				for(int i = 0; i < face.length; i++) {
 					turnface[i] = face[i][2];
 				}
@@ -72,45 +69,49 @@ public class Face {
 	}
 	
 	/**
-	* 
+	* Makes changes to the turn section given which section of the face, and the values to update it with
 	*/
-	public void setTurnSection(CubeSection section, char[] section) {
+	public void setTurnSection(CubeSection section, char[] sectionValues) {
 		switch(section) {
-			case section.TOP:
-				face[0] = section;
+			case TOP:
+				face[0] = sectionValues;
 				break;
 			
-			case section.HORIZONTAL_MIDDLE:
-				face[1] = section;
+			case HORIZONTAL_MIDDLE:
+				face[1] = sectionValues;
 				break;
 			
-			case section.BOTTOM:
-				face[2] = section;
+			case BOTTOM:
+				face[2] = sectionValues;
 				break;
 				
 				
 				
 				
-			case section.LEFT:
-				for(int i=0; i<section.length; i++) {
-					face[i][0] = section[i];
+			case LEFT:
+				for(int i=0; i<sectionValues.length; i++) {
+					face[i][0] = sectionValues[i];
 				}
 				break;
 				
-			case section.VERTICAL_MIDDLE:
-				for(int i=0; i<section.length; i++) {
-					face[i][1] = section[i];
+			case VERTICAL_MIDDLE:
+				for(int i=0; i<sectionValues.length; i++) {
+					face[i][1] = sectionValues[i];
 				}
 				break;
 				
-			case section.RIGHT:
-				for(int i=0; i<section.length; i++) {
-					face[i][2] = section[i];
+			case RIGHT:
+				for(int i=0; i<sectionValues.length; i++) {
+					face[i][2] = sectionValues[i];
 				}
 				break;
 		}
 	}
 	
+	/**
+	* Performs a point-wise rotation around the middle block. It will only rotate to the right, however achieving a rotate to the left
+	* can be achieved by same rotation to the right
+	*/
 	public void rotate(int turns) {
 		// This is rotating to the right
 		turns = turns % 4;
@@ -129,6 +130,15 @@ public class Face {
 		face = newFace;
 	}
 	
+	/**
+	* Gives the string representation of the Face given as:
+	*
+	* abc\n
+	* def\n
+	* ghi\n
+	*
+	* where a,b,c,d,e,f,g,h,i are all different blocks
+	*/
 	public String toString() {
 		String string = "";
 	
