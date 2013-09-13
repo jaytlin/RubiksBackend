@@ -10,17 +10,18 @@ public class ParseRubiks {
 	public static final int SIZE = 3;
 	public static final int TOTAL_FACES = 6;
 
-/*	public static final int TOP = 0
-	public static final int LEFT = 1
-	public static final int FRONT = 2
-	public static final int RIGHT = 3
-	public static final int BACK = 4
-	public static final int BOTTOM = 5*/
+	public static final int TOP = 0;
+	public static final int LEFT = 1;
+	public static final int FRONT = 2;
+	public static final int RIGHT = 3;
+	public static final int BACK = 4;
+	public static final int BOTTOM = 5;
 
 	public static Cube main(String[] argv) {
 		ParseRubiks parser = new ParseRubiks(argv[0]);
 		Cube output = parser.lineByLine();
 		emit("Rubiks text parsed into Cube.");
+		return output;
 	}
 
 	public ParseRubiks(String filepath) {
@@ -42,10 +43,7 @@ public class ParseRubiks {
 		} finally {
 			input.close();
 		}
-		Cube outputCube = new Cube();
-		for (int i = 0; i < TOTAL_FACES; i++) {
-			outputCube[i] = faces[i];
-		}
+		Cube outputCube = new Cube(faces[TOP],faces[LEFT],faces[FRONT],faces[RIGHT],faces[BACK],faces[BOTTOM]);
 		return outputCube;
 	}
 
