@@ -1,4 +1,4 @@
-package rubiksbackend;
+package src;
 
 import java.io.*;
 import java.util.Scanner;
