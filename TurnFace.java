@@ -2,7 +2,9 @@ public enum TurnFace {
   LEFT("left"),
   RIGHT("right"),
   TOP("top"),
-  BOTTOM("bottom");
+  BOTTOM("bottom"),
+  FRONT("front"),
+  BACK("back");
 
   public static String fromValue(String value) {
     if(value != null) {
@@ -15,3 +17,4 @@ public enum TurnFace {
     }
   }
 }
+
