@@ -64,7 +64,6 @@ public class ParseRubiks {
 				row++;
 			}
 		}
-		System.out.println(Arrays.toString(faceArray));
 		Face outputFace = new Face(faceArray);
 		return outputFace;
 	}
