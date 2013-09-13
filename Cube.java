@@ -15,7 +15,7 @@ public class Cube {
     this.right = right;
   }
 
-  public turn(TurnFace face, int numSteps) {
+  public turnSide(TurnFace face, int numSteps) {
     numSteps = numSteps % 4;
     switch(face) {
       case TurnFace.FRONT:
